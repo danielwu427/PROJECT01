@@ -1,0 +1,161 @@
+header{
+    display: flex;
+    justify-content: space-around   ;
+    align-items: center;
+    position: relative;
+    height: 45px;
+    .logo{
+        position: absolute;
+        top: 0;
+        left: 50px;
+    }
+    .menu_btn{
+        position: absolute;
+        top: 0;
+        right: 50px;
+        visibility: hidden;
+    }
+    .menu{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 0px 20px;
+        li{
+            text-align: center;
+            a{
+                padding: 4px 12px;
+                position: relative;
+                &:hover{
+                    .menu_Ltop{
+                        border-top: 1px solid black ;
+                        border-left: 1px solid black;;
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        left: 0px;
+                        top: 0px;
+                    }
+                    .menu_Rtop{
+                        border-top: 1px solid black ;
+                        border-right: 1px solid black;;
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        right: 0px;
+                        top: 0px;
+                    }
+                    .menu_Lbottom{
+                        border-bottom: 1px solid black ;
+                        border-left: 1px solid black;;
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        left: 0px;
+                        bottom: 0px;
+                    }
+                    .menu_Rbottom{
+                        border-bottom: 1px solid black ;
+                        border-right: 1px solid black;;
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        right: 0px;
+                        bottom: 0px;
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// menu_btn
+.menu_btn{
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    cursor: pointer;           //mousestyle
+    display: block;
+    align-items: center;
+    padding: 16px;
+    z-index: 2;
+   }
+
+.menu_btn .line,
+.menu_btn .line::before,
+.menu_btn .line::after {
+    background-color: #222;
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    transition: top ease 0.3s 0.3s, transform ease 0.3s;
+    width: 20px;
+  }
+.menu_btn .line{
+    top: 25px;
+  }
+  
+.menu_btn .line::before {
+    top: -6px;
+  }
+  
+.menu_btn .line::after {
+    top: 6px;
+  }
+
+// 選擇後叉叉
+#menu_Hambugerlist:checked + header .menu_btn .line{
+    background-color: transparent;
+}
+#menu_Hambugerlist:checked + header .menu_btn .line::before{
+    transform: rotate(45deg);
+}
+#menu_Hambugerlist:checked + header .menu_btn .line::after{
+    transform: rotate(-45deg);
+}
+
+#menu_Hambugerlist:checked + header .menu_btn .line::before,
+#menu_Hambugerlist:checked + header .menu_btn .line::after {
+  top: 0;
+  transition: top ease 0.3s, transform ease 0.3s 0.3s;
+//   transition: property  duration  timing-function  delay;
+//   transition: 套用的屬性 花費時間       時間速率    等待時間;
+}
+
+#menu_Hambugerlist{
+    display: none;
+}
+
+
+@media (max-width: 767px) {
+    #menu_Hambugerlist:checked ~ header .menu{
+        max-height: 500px;
+    }
+    
+    header {
+        width: 100%;
+        .menu_btn{
+            visibility: visible;
+        }
+      }
+         
+    .menu {
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        /* 設定絕對定位 */
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        /* 選單滿版呈現，也可以設定 left:0; right:0; */
+        // left:0; right:0;
+        transition: max-height .8s;
+        li{
+            background-color:gray;
+            padding: 20px 0px;
+        }
+    }
+}

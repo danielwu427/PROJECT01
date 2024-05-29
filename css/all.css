@@ -1,0 +1,206 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  height: 45px;
+}
+header .logo {
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+header .menu_btn {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  visibility: hidden;
+}
+header .menu {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0px 20px;
+}
+header .menu li {
+  text-align: center;
+}
+header .menu li a {
+  padding: 4px 12px;
+  position: relative;
+}
+header .menu li a:hover .menu_Ltop {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  left: 0px;
+  top: 0px;
+}
+header .menu li a:hover .menu_Rtop {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  right: 0px;
+  top: 0px;
+}
+header .menu li a:hover .menu_Lbottom {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  left: 0px;
+  bottom: 0px;
+}
+header .menu li a:hover .menu_Rbottom {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.menu_btn {
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  cursor: pointer;
+  display: block;
+  align-items: center;
+  padding: 16px;
+  z-index: 2;
+}
+
+.menu_btn .line,
+.menu_btn .line::before,
+.menu_btn .line::after {
+  background-color: #222;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  transition: top ease 0.3s 0.3s, transform ease 0.3s;
+  width: 20px;
+}
+
+.menu_btn .line {
+  top: 25px;
+}
+
+.menu_btn .line::before {
+  top: -6px;
+}
+
+.menu_btn .line::after {
+  top: 6px;
+}
+
+#menu_Hambugerlist:checked + header .menu_btn .line {
+  background-color: transparent;
+}
+
+#menu_Hambugerlist:checked + header .menu_btn .line::before {
+  transform: rotate(45deg);
+}
+
+#menu_Hambugerlist:checked + header .menu_btn .line::after {
+  transform: rotate(-45deg);
+}
+
+#menu_Hambugerlist:checked + header .menu_btn .line::before,
+#menu_Hambugerlist:checked + header .menu_btn .line::after {
+  top: 0;
+  transition: top ease 0.3s, transform ease 0.3s 0.3s;
+}
+
+#menu_Hambugerlist {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  #menu_Hambugerlist:checked ~ header .menu {
+    max-height: 500px;
+  }
+  header {
+    width: 100%;
+  }
+  header .menu_btn {
+    visibility: visible;
+  }
+  .menu {
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    /* 設定絕對定位 */
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    /* 選單滿版呈現，也可以設定 left:0; right:0; */
+    transition: max-height 0.8s;
+  }
+  .menu li {
+    background-color: gray;
+    padding: 20px 0px;
+  }
+}/*# sourceMappingURL=all.css.map */

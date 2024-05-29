@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#menu_Ctrl{
+    display: none;
+}
+
+header{
+    background-color: grey;
+    height: 50px;
+    position: relative;
+    .logo{
+        width: 60px;
+        height: 40px;
+        img{
+            display: block;
+        }
+    }
+    .menu_Btn{
+        background-color: #fff;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor:pointer;
+    }
+    /* .menu_Btn::before{
+        content: "";
+        position: absolute;
+        height: 2px; 
+        width: 36px;
+        left: 2px;
+        background-color: antiquewhite;
+        top:0;
+        bottom: 0px;
+        margin: auto;
+        box-shadow:0px 8px 0px antiquewhite,0px -8px 0px antiquewhite;
+    } */
+    .menu{
+        width: 100%;
+        text-align: center;
+        background-color: darkolivegreen;
+        position: absolute;
+        top: 50px;
+        left:-100%;
+        li{
+           padding: 10px;
+            a{
+                text-decoration: none;
+                color:#a6e22c;
+            }
+        }
+    }
+}
+/* XX */
+.line,
+.line::before,
+.line::after{
+    background: #222;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 20px;
+    position: absolute;
+}
+.line{
+    top:18px;
+    left: 10px;
+}
+.line::before{
+    top: -6px;
+}
+.line::after{
+    top: 6px;
+}
+
+#menu_Ctrl:checked + header .menu_Btn .line{
+    background: transparent;
+}
+#menu_Ctrl:checked + header .menu_Btn .line:before{
+    transform: rotate(45deg);
+}
+#menu_Ctrl:checked + header .menu_Btn .line:after{
+    transform: rotate(-45deg);
+}
+#menu_Ctrl:checked + header .menu_Btn .line:before,
+#menu_Ctrl:checked + header .menu_Btn .line:after{
+    top: 0;
+    transition: top ease .3s, transform ease .3s .3s;
+}
+
+
+
+
+#menu_Ctrl:checked ~ header .menu{
+    left: 0px;
+    transition: 0.5s;
+}
+#menu_Ctrl:checked ~ header .menu_Btn:before{
+    transform: rotate(45deg);
+}
+#menu_Ctrl:checked ~ header .menu_Btn::after{
+    transform: rotate(-45deg);
+}
+
+
+@media (min-width:768px){
+    label{
+        display: none;
+    }
+    header{
+        display: flex;
+        justify-content: space-between;
+        .menu{
+            display: flex;
+            position: relative;
+            left: 0px;
+            width: auto;
+            height: auto;
+            top: 0;
+        }
+    }
+}
