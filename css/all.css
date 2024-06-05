@@ -278,27 +278,47 @@ header .menu li a:hover .menu_Rbottom {
   margin-bottom: 20px;
 }
 
-.content ul li {
+.content .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0 auto;
   width: 351px;
 }
-.content ul li img {
+.content .card li {
+  margin-bottom: 48px;
+}
+.content .card li img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 16px;
 }
-.content ul li .card_txt h3 {
+.content .card li .card_txt h3 {
   font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 24px;
 }
-.content ul li .card_txt p {
+.content .card li .card_txt p {
   font-size: 16px;
+  line-height: 24px;
   color: #919191;
+  margin-bottom: 16px;
 }
-.content ul li .card_txt .function_Select {
+.content .card li .card_txt .function_Select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 10px;
 }
-.content ul li .card_txt .function_Select li {
-  margin: 0 auto;
+.content .card li .card_txt .function_Select li {
+  background-color: #F1F1F1;
+  border-radius: 16px;
+  font-size: 16px;
+  padding: 4px 12px;
+  line-height: 24px;
 }/*# sourceMappingURL=all.css.map */

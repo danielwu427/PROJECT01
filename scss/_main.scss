@@ -219,10 +219,13 @@ header{
     }
 }
 .content{
-    ul{
+    .card{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 351px;
         li{
-            margin: 0 auto;
-            width: 351px;
+            margin-bottom: 48px;
             img{
                 width: 100%;
                 border-radius: 8px;
@@ -231,15 +234,25 @@ header{
             .card_txt{
                 h3{
                     font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                    line-height: $base-lineheigh;
                 }
                 p{
                     font-size: 16px;
+                    line-height: $base-lineheigh;
                     color: #919191;
+                    margin-bottom: 16px;
                 }
                 .function_Select{
                     display: flex;
+                    gap: 10px;
                     li{
-                        margin: 0 auto;
+                        background-color: #F1F1F1;
+                        border-radius: 16px;
+                        font-size: 16px;
+                        padding: 4px 12px;
+                        line-height: $base-lineheigh;
                     }
                 }
             }
